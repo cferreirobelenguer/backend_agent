@@ -13,9 +13,9 @@ var controller={
         })
     },
     buscarEmpleado:(req,res)=>{
-        var params=req.body;
-        var buscarApellidos=params.apellidos;
-        console.log(req.body.apellidos)
+    
+        var buscarApellidos=req.params.apellidos;
+        
         empresaModel.find(
             {"apellidos":buscarApellidos},
         ).sort()
