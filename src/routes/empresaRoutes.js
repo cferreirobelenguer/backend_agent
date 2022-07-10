@@ -8,7 +8,7 @@ var empresaController= require('../controller/empresaController')
 var router=express.Router();
 
 //Routes
-router.get('/ver', empresaController.buscarEmpleado);
+router.get('/ver/:apellidos', empresaController.buscarEmpleado);
 router.post('/save',empresaController.guardarEmpleado);
 router.get('/prueba',empresaController.prueba);
 
