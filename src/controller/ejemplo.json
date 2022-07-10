@@ -1,0 +1,1 @@
+{  "_id": {    "$oid": "6280b5c3b427c8217bb8d0a8"  },  "nombre": "Pedro",  "apellidos": "Medina Perez",  "oficio": "ventas",  "departamento": "comercial",  "fecha_alta": "10-04-2000", "salario": "1400", "seguridadsocial": "295647852", "telefono":"635786578" ,"__v": 0}
