@@ -14,12 +14,10 @@ var controller={
     },
     buscarEmpleado:(req,res)=>{
         var params=req.body;
-        var buscarNombre=params.nombre;
         var buscarApellidos=params.apellidos;
-        console.log(req.body.nombre)
-        console.log("Nombre "+buscarNombre + " "+buscarApellidos);
+        console.log(req.body.apellidos)
         empresaModel.find(
-            {"nombre":buscarNombre},
+            {"apellidos":buscarApellidos},
         ).sort()
         .exec((err, resultado)=>{
             if(err){
