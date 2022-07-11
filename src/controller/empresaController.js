@@ -13,11 +13,11 @@ var controller={
         })
     },
     buscarEmpleado:(req,res)=>{
-    
+        var buscarNombre=req.params.nombre;
         var buscarApellidos=req.params.apellidos;
         
         empresaModel.find(
-            {"apellidos":buscarApellidos},
+            {"nombre":buscarNombre, "apellidos":buscarApellidos},
         ).sort()
         .exec((err, resultado)=>{
             if(err){
@@ -107,6 +107,29 @@ var controller={
                 message:'Los datos no son validos'
                 });
             }
+        },
+        delete:(req,res)=>{
+            var borrarNombre=req.params.nombre;
+            var borrarApellidos=rq.params.apellidos;
+            empresaModel.findOneAndDelete({nombre:borrarNombre, apellidos: borrarApellidos}, (err,empleadoRemove)=>{
+                if(err){
+                    return res.status(400).send({
+                        status:'error',
+                        message: 'Error al borrar'
+                    });
+                }
+
+                if(!empleadoRemove){
+                    return res.status(400).send({
+                        status:'error',
+                        message: 'No se ha podido borrar'
+                    });
+                }
+                return res.status(200).send({
+                    status: 'succes',
+                    empleado: empleadoRemove
+                })
+            })
         }
 
 };
