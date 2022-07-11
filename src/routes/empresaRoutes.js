@@ -9,8 +9,8 @@ const empresa = require('../models/empresa');
 var router=express.Router();
 
 //Routes
-router.get('/ver/:apellidos', empresaController.buscarEmpleado);
+router.get('/ver/:nombre&:apellidos', empresaController.buscarEmpleado);
 router.post('/save',empresaController.guardarEmpleado);
-router.delete('/delete:nombre&:apellidos', empresaController.deleteEmpleado)
+router.delete('/delete/:nombre&:apellidos', empresaController.deleteEmpleado)
 module.exports= router;
 

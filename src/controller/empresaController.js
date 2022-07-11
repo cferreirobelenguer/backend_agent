@@ -101,26 +101,27 @@ var controller={
                 }
             });
         }else{
-            //Error en caso de que falten parámetros o los datos que el cliente rellena en el formulario no son correctos
+            //Error
             return res.status(404).send({
                 status:'error',
                 message:'Los datos no son validos'
                 });
             }
         },
+        //delete employee
         deleteEmpleado:(req,res)=>{
             var borrarNombre=req.params.nombre;
-            var borrarApellidos=rq.params.apellidos;
+            var borrarApellidos=req.params.apellidos;
             empresaModel.findOneAndDelete({nombre:borrarNombre, apellidos: borrarApellidos}, (err,empleadoRemove)=>{
                 if(err){
-                    return res.status(400).send({
+                    return res.status(500).send({
                         status:'error',
                         message: 'Error al borrar'
                     });
                 }
 
                 if(!empleadoRemove){
-                    return res.status(400).send({
+                    return res.status(404).send({
                         status:'error',
                         message: 'No se ha podido borrar'
                     });
