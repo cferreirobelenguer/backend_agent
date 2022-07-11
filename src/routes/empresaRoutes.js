@@ -3,14 +3,14 @@
 //import express
 var express=require('express');
 //import controller
-var empresaController= require('../controller/empresaController')
+var empresaController= require('../controller/empresaController');
+const empresa = require('../models/empresa');
 //import router
 var router=express.Router();
 
 //Routes
 router.get('/ver/:apellidos', empresaController.buscarEmpleado);
 router.post('/save',empresaController.guardarEmpleado);
-router.get('/prueba',empresaController.prueba);
-
+router.delete('/delete:nombre&:apellidos', empresaController.deleteEmpleado)
 module.exports= router;
 

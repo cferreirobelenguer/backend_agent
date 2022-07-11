@@ -108,7 +108,7 @@ var controller={
                 });
             }
         },
-        delete:(req,res)=>{
+        deleteEmpleado:(req,res)=>{
             var borrarNombre=req.params.nombre;
             var borrarApellidos=rq.params.apellidos;
             empresaModel.findOneAndDelete({nombre:borrarNombre, apellidos: borrarApellidos}, (err,empleadoRemove)=>{
