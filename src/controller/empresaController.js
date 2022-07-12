@@ -7,11 +7,25 @@ const empresa = require('../models/empresa');
 
 
 var controller={
-    prueba:(req,res)=>{
-        return res.status(200).send({
-            message:"hola mundo"
-        })
+    //it searchs employee salaries
+    buscarSalarios:(req,res)=>{
+        empresaModel.find(
+            {},{"salario": 6}
+            ).sort()
+            .exec((err,resultadoSalarios)=>{
+                if(err){
+                    return res.status(500).send({
+                        status:'error',
+                        message: 'Error'
+                    });
+                }
+                return res.status(200).send({
+                    status: 'success',
+                    resultadoSalarios
+                })
+            })
     },
+    //it searchs employee
     buscarEmpleado:(req,res)=>{
         var buscarNombre=req.params.nombre;
         var buscarApellidos=req.params.apellidos;
@@ -33,6 +47,7 @@ var controller={
         })
         
     },
+    //it saves employees in database
     guardarEmpleado:(req,res)=>{
         var params=req.body;
         console.log(params);
@@ -85,7 +100,7 @@ var controller={
                         });
                     
                     }
-                    //save the information to the employment
+                    //it saves the information to the employment
                 
                     return res.status(200).send({
                         status:'success',

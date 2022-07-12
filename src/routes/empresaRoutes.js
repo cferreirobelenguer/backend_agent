@@ -12,5 +12,6 @@ var router=express.Router();
 router.get('/ver/:nombre&:apellidos', empresaController.buscarEmpleado);
 router.post('/save',empresaController.guardarEmpleado);
 router.delete('/delete/:nombre&:apellidos', empresaController.deleteEmpleado)
+router.get('/buscarSalarios/', empresaController.buscarSalarios)
 module.exports= router;
 
