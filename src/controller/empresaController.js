@@ -7,11 +7,26 @@ const empresa = require('../models/empresa');
 
 
 var controller={
-    //it searchs employee salaries
-    buscarSalarios:(req,res)=>{
-        empresaModel.find(
-            {},{"salario": 6}
-            ).sort()
+    //it searchs employee salaries from oldest to youngest
+    buscarSalarioAlto:(req,res)=>{
+        empresaModel.find().sort({salario:+1}).limit()
+            
+            .exec((err,resultadoSalarios)=>{
+                if(err){
+                    return res.status(500).send({
+                        status:'error',
+                        message: 'Error'
+                    });
+                }
+                return res.status(200).send({
+                    status: 'success',
+                    resultadoSalarios
+                })
+            })
+    },
+    buscarSalarioBajo:(req,res)=>{
+        empresaModel.find().sort({salario:-1}).limit()
+            
             .exec((err,resultadoSalarios)=>{
                 if(err){
                     return res.status(500).send({
