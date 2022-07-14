@@ -7,6 +7,38 @@ const empresa = require('../models/empresa');
 
 
 var controller={
+    //new incorporation of the company
+    buscarIncorporacionNueva:(req,res)=>{
+        empresaModel.find().sort({fecha_alta:-1})
+        .exec((err,resultadosFechas)=>{
+            if(err){
+                return res.status(500).send({
+                    status:'error',
+                    message: 'Error'
+                });
+            }
+            return res.status(200).send({
+                status: 'success',
+                resultadosFechas
+            })
+        })
+    },
+    //the most oldest incorporation of the company
+    buscarIncorporacionAntigua:(req,res)=>{
+        empresaModel.find().sort({fecha_alta:+1})
+        .exec((err,resultadosFechas2)=>{
+            if(err){
+                return res.status(500).send({
+                    status:'error',
+                    message:'Error'
+                });
+            }
+            return res.status(200).send({
+                status:'success',
+                resultadosFechas2
+            })
+        })
+    },
     //it searchs employee salaries from oldest to youngest
     buscarSalarioAlto:(req,res)=>{
         empresaModel.find().sort({salario:+1}).limit()

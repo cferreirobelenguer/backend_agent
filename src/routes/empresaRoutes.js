@@ -14,5 +14,7 @@ router.post('/save',empresaController.guardarEmpleado);
 router.delete('/delete/:nombre&:apellidos', empresaController.deleteEmpleado)
 router.get('/buscarmax/', empresaController.buscarSalarioAlto)
 router.get('/buscarmin/', empresaController.buscarSalarioBajo)
+router.get('/buscarminFecha/', empresaController.buscarIncorporacionNueva)
+router.get('/buscarmaxFecha/', empresaController.buscarIncorporacionAntigua)
 module.exports= router;
 
