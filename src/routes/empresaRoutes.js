@@ -16,6 +16,6 @@ router.get('/buscarmax/', empresaController.buscarSalarioAlto)
 router.get('/buscarmin/', empresaController.buscarSalarioBajo)
 router.get('/buscarminFecha/', empresaController.buscarIncorporacionNueva)
 router.get('/buscarmaxFecha/', empresaController.buscarIncorporacionAntigua)
-router.update('/actualizar/:nombre&:apellidos',empresaController.actualizarDatos)
+router.put('/actualizar/:nombre&:apellidos',empresaController.actualizarDatos)
 module.exports= router;
 
