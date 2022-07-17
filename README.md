@@ -3,6 +3,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 This proyect is a RR.HH virtual agent. It has an API REST with mongoDB database and it searchs information in this when the user orders something.
+When the user presses the button he can interact with the virtual assistant.
 
 ![image](https://user-images.githubusercontent.com/88061350/179427476-bc933e78-bed7-4dbd-83e4-e7b282bf2d69.png)
 
